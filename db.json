@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "document": "12345678",
+      "name": "Camilo Torres",
+      "phone": "3001234567",
+      "address": "Bogotá",
+      "email": "camilo@example.com"
+    },
+    {
+      "id": 2,
+      "document": "87654321",
+      "name": "Laura Gómez",
+      "phone": "3007654321",
+      "address": "Medellín",
+      "email": "laura@example.com"
+    }
+  ],
+
+  "books": [
+    {
+      "id": 1,
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "pages": 464
+    },
+    {
+      "id": 2,
+      "title": "The Pragmatic Programmer",
+      "author": "Andrew Hunt",
+      "pages": 352
+    },
+    {
+      "id": 3,
+      "title": "Design Patterns",
+      "author": "Erich Gamma",
+      "pages": 395
+    }
+  ],
+
+  "loans": [
+    {
+      "id": 1,
+      "userId": 1,
+      "bookId": 1,
+      "loanDate": "2026-06-01",
+      "dueDate": "2026-06-16",
+      "status": "ACTIVE"
+    }
+  ]
+}
