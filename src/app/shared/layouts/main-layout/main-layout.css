@@ -1,0 +1,24 @@
+ :host {
+	display: block;
+	min-height: 100vh;
+	background: var(--color-background);
+}
+
+.main-layout {
+	margin-left: var(--layout-sidebar-width);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background: var(--color-background);
+}
+
+.main-layout__content {
+	flex: 1;
+	padding: var(--layout-content-padding);
+}
+
+@media (max-width: 768px) {
+	.main-layout {
+		margin-left: 0;
+	}
+}

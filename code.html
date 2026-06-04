@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Librarian Portal - Available Books</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#001c38",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1c1e",
+                        "secondary-fixed": "#cee5ff",
+                        "primary-container": "#1a4571",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#6ebebd",
+                        "secondary-fixed-dim": "#b1c9e4",
+                        "primary-fixed": "#d3e4ff",
+                        "surface": "#faf9fd",
+                        "outline-variant": "#c3c6d0",
+                        "inverse-on-surface": "#f1f0f4",
+                        "surface-variant": "#e3e2e6",
+                        "on-secondary-fixed-variant": "#32495f",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#004c4c",
+                        "surface-container-low": "#f4f3f7",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary": "#002e55",
+                        "on-primary-fixed-variant": "#1e4875",
+                        "secondary-container": "#cae2fe",
+                        "tertiary": "#003434",
+                        "primary-fixed-dim": "#a3c9fd",
+                        "on-secondary-container": "#4e657d",
+                        "on-surface-variant": "#42474f",
+                        "surface-bright": "#faf9fd",
+                        "tertiary-fixed": "#a0f0f0",
+                        "on-surface": "#1a1c1e",
+                        "on-primary-container": "#8db3e5",
+                        "secondary": "#4a6078",
+                        "on-tertiary-fixed-variant": "#004f4f",
+                        "outline": "#737780",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#84d4d3",
+                        "inverse-surface": "#2f3033",
+                        "background": "#faf9fd",
+                        "surface-container-high": "#e8e8ec",
+                        "surface-dim": "#dad9dd",
+                        "surface-tint": "#39608e",
+                        "surface-container-highest": "#e3e2e6",
+                        "surface-container": "#eeedf1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sidebar-width": "280px",
+                        "container-padding": "24px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "topbar-height": "64px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                        "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+
+
+<!-- SideNavBar Shell -->
+<aside class="w-sidebar-width h-full fixed left-0 top-0 flex flex-col p-gutter border-r border-outline-variant bg-surface dark:bg-inverse-surface z-50">
+<div class="mb-8">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed">Librarian Portal</h1>
+<p class="font-label-lg text-label-lg text-on-surface-variant">City Central Library</p>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<!-- Dashboard -->
+<a class="flex items-center gap-base text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-3 font-label-lg text-label-lg transition-colors cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Available Books (ACTIVE) -->
+<a class="flex items-center gap-base bg-secondary-container text-on-secondary-container rounded-full px-4 py-3 font-label-lg text-label-lg transition-colors cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="book" style="font-variation-settings: 'FILL' 1;">book</span>
+<span>Available Books</span>
+</a>
+<!-- Create Loan -->
+<a class="flex items-center gap-base text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-3 font-label-lg text-label-lg transition-colors cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+<span>Create Loan</span>
+</a>
+<!-- User Loans -->
+<a class="flex items-center gap-base text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-3 font-label-lg text-label-lg transition-colors cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>User Loans</span>
+</a>
+<!-- Return Loan -->
+<a class="flex items-center gap-base text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-3 font-label-lg text-label-lg transition-colors cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_return">assignment_return</span>
+<span>Return Loan</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant flex flex-col gap-2">
+<button class="w-full bg-primary text-on-primary rounded-full py-3 mb-4 font-label-lg text-label-lg shadow-sm hover:shadow-md transition-all active:scale-95">
+                Quick Checkout
+            </button>
+<a class="flex items-center gap-base text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-3 font-label-lg text-label-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-base text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-3 font-label-lg text-label-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+
+
+
+<!-- Main Content Area -->
+<main class="ml-sidebar-width min-h-screen flex flex-col">
+
+    
+<!-- TopNavBar Shell -->
+<header class="h-topbar-height sticky top-0 z-40 bg-surface dark:bg-surface-dim border-b border-outline-variant flex justify-between items-center px-container-padding w-full">
+<div class="flex items-center gap-gutter flex-1">
+<div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-primary rounded-full transition-all">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-4 py-2 bg-surface-container-low border-none rounded-full focus:ring-0 font-body-md text-body-md" placeholder="Search Catalog..." type="text"/>
+</div>
+<div class="hidden md:flex gap-gutter items-center ml-4">
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-on-surface transition-all" href="#">Catalog</a>
+<a class="font-title-md text-title-md text-primary border-b-2 border-primary font-bold pb-1" href="#">Circulation</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-on-surface transition-all" href="#">Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-primary-container overflow-hidden border border-outline-variant">
+<img alt="Librarian Profile" data-alt="A professional headshot of a middle-aged female librarian with a friendly expression, wearing modern glasses and a navy blue blazer. She is standing in front of a blurred background of organized library shelves. The lighting is soft and even, creating a clean, corporate, and authoritative atmosphere typical of a professional management interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBup3II0BYX_YiJCOsa2_P4f2wlSKAv74VpeLmsAm7OjqaFxGPTyMYFN7hEfhcETAdmlILukcbQESjd2-FHgDgaepufc8X_65EzEwP1gG0gl9Pd95UNPXLGND2EFdKiHk45rFBpPdMRh0l6ZdggXPyz2qkTZH_Tz40M90sEIrG8zZ-1DsthvP21NFyXRocoJIZzAcfWvmGnJIjmVqP2_MRRouKi8HGdxKsOJL3mpU7QrIXVALzKZpGVV7jlvIFiV1NdNxzoGbOQBkcM"/>
+</div>
+</div>
+</header>
+
+
+
+<!-- Content Canvas -->
+<div class="p-container-padding flex-1">
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<nav class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md mb-2">
+<span>Catalog</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-bold">Available Books</span>
+</nav>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Book Inventory</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage and monitor the current collection status.</p>
+</div>
+<div class="flex gap-3">
+<div class="flex items-center bg-surface-container-high rounded-lg px-3 border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] mr-2">filter_alt</span>
+<select class="bg-transparent border-none focus:ring-0 font-label-lg text-label-lg py-2">
+<option>All Categories</option>
+<option>Fiction</option>
+<option>Non-Fiction</option>
+<option>Technology</option>
+<option>History</option>
+</select>
+</div>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-6 py-2 rounded-lg font-label-lg text-label-lg hover:shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        Add New Book
+                    </button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant sticky top-0">
+<th class="px-6 py-4 font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Title</th>
+<th class="px-6 py-4 font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Author</th>
+<th class="px-6 py-4 font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">ISBN</th>
+<th class="px-6 py-4 font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Category</th>
+<th class="px-6 py-4 font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Availability</th>
+<th class="px-6 py-4 font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-14 bg-surface-container-high rounded overflow-hidden flex-shrink-0 border border-outline-variant">
+<img data-alt="A minimalist book cover design for a title named 'The Echoes of Silence'. The cover features abstract blue and gray waves against a clean white background. The typography is modern and sans-serif. The image is presented in a bright, high-contrast studio setting with soft shadows, reflecting a professional and organized library catalog aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwIG42kcp1O2Am_fxnkd0b5MgZ9bBjbnKVaedLpifawqLuXJuwXWvzbYDawQ0OqiwLhOgKWlNv-Jgi3YERksDi37KTVJVL4JbXcE70cLsLWIhtrrqKPZX4qgWaf0_UOTGbynzADyajDPkVx_6Y-yG4bXej2NJKbJQDuoOZAZXQBlaU87X4_61deUWJSnhQkacKrwggkJgengH1C7u9vIb6tsn3ntvcmZKcdnp01LXrgcsg07zv9zyzwyhjEzL8Vj9m9--B7lIEajOd"/>
+</div>
+<span class="font-title-md text-title-md text-on-surface">The Echoes of Silence</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant">Eleanor Vance</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant font-mono">978-3-16-148410-0</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container rounded text-xs font-bold uppercase tracking-tight">Fiction</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-[#2e7d32]">
+<span class="h-2 w-2 rounded-full bg-[#2e7d32]"></span>
+<span class="font-label-md text-label-md font-bold uppercase">Available</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded font-label-md text-label-md hover:bg-opacity-90 transition-all active:scale-95">
+                                        Create Loan
+                                    </button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-14 bg-surface-container-high rounded overflow-hidden flex-shrink-0 border border-outline-variant">
+<img data-alt="A vintage-style book cover for 'Chronicles of the Past' with aged parchment texture and gold foil lettering. The setting is a bright, airy library with warm sunlight filtering through. The mood is sophisticated and historical, aligned with a high-end educational resource management platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfXq6-TxDmzCiLTnmO8lQnYgESSm_1j9hX5arUW2PrU9RmrhQpt8Hq3BURItvtqqFYdGgAqwmWevltFrXp1Ytr97hAetyX00Mov3bRadm6HJXi5MgTkB2F71Uv9s6J_9eaK3_55v70xdtLFyrRd1etGV5HUi0Xvo_hvkW_SX6TMAu-86_LoaLivJIbvHAHny2CXRbrYA1owBDRMn1sosgaqaB4ZoL3E-je2HsAQC1QJcrj-cDCOXaV0NL2Grf2I_1JQoEOflnKrk_K"/>
+</div>
+<span class="font-title-md text-title-md text-on-surface">Chronicles of the Past</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant">Julian Thorne</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant font-mono">978-0-12-345678-9</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded text-xs font-bold uppercase tracking-tight">History</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-error">
+<span class="h-2 w-2 rounded-full bg-error"></span>
+<span class="font-label-md text-label-md font-bold uppercase">On Loan</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="border border-primary text-primary px-4 py-1.5 rounded font-label-md text-label-md hover:bg-secondary-container transition-all active:scale-95">
+                                        View Details
+                                    </button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-14 bg-surface-container-high rounded overflow-hidden flex-shrink-0 border border-outline-variant">
+<img data-alt="A futuristic technology book cover titled 'The AI Revolution'. It features glowing circuit patterns in neon cyan and dark blue against a deep black background. The lighting is crisp and tech-focused, emphasizing a modern and advanced educational environment within the library inventory system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwZOVWqTEaivrY6pYqE7k3ETInCL2iWR7V3gPNjx29ZdvhqnuOdSFMqP_ZbOp49PPXFrBoX1NJlvuJkvmeQdlmJa91315zhB8WHVoRJVYTXvK2mMCXYeXwLoC0L7_DptB1gPQok0JYW8p7rhNU9_hTmfzViMHUpJ5GB7gVDHwRcsaWLh99g2BYJlFGjbnqAwr5Tbu3zrY_JNA-4rY7X8-vqQLJNFsqKx6te72DFkv-OlbRtKv3IZZ4vDbXVBD5FsLBXq-IAafakTTM"/>
+</div>
+<span class="font-title-md text-title-md text-on-surface">The AI Revolution</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant">Sarah Jenkins</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant font-mono">978-1-86-197271-2</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed-variant rounded text-xs font-bold uppercase tracking-tight">Technology</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-[#2e7d32]">
+<span class="h-2 w-2 rounded-full bg-[#2e7d32]"></span>
+<span class="font-label-md text-label-md font-bold uppercase">Available</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded font-label-md text-label-md hover:bg-opacity-90 transition-all active:scale-95">
+                                        Create Loan
+                                    </button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-14 bg-surface-container-high rounded overflow-hidden flex-shrink-0 border border-outline-variant">
+<img data-alt="Educational book cover for 'Mastering Physics' showing a stylized atom diagram in bright orange and deep blue. The design is clean and pedagogical. The visual style is high-contrast and professional, suitable for a streamlined librarian management interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlHZ-Cnvqgx1y7lfK_ESWTB6eekbLuGjh-E_qqeD2lMWzO3Jd06QsE66G1-iI4o5t7Xl7gsZ6bS-ZEyxljj15lguWbfjIa3mYcdI04zlPrbpN_pAGrjKkKscqVjzCPhY24jtb9kGnAFb85ChDvg-hwx39TZpxHsK-1QVnOMZHkwZeRSbd-zQ7r7uH9kVLACxSpA6r5PGVBdCGR7Rhm5tsZLqD_n7wpFxvp0GnMjmOUgs8QqsmvX_kX2LkkUcjwf_qTfrMpwmcGQjhH"/>
+</div>
+<span class="font-title-md text-title-md text-on-surface">Mastering Physics</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant">Dr. Alan Grant</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant font-mono">978-0-32-156784-1</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-surface-variant text-on-surface-variant rounded text-xs font-bold uppercase tracking-tight">Non-Fiction</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-[#2e7d32]">
+<span class="h-2 w-2 rounded-full bg-[#2e7d32]"></span>
+<span class="font-label-md text-label-md font-bold uppercase">Available</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded font-label-md text-label-md hover:bg-opacity-90 transition-all active:scale-95">
+                                        Create Loan
+                                    </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="px-6 py-4 bg-surface-container-low border-t border-outline-variant flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Showing 1-10 of 482 books</span>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-variant disabled:opacity-50 transition-colors" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="px-3 py-1 border border-primary bg-primary text-on-primary rounded font-label-md text-label-md">1</button>
+<button class="px-3 py-1 border border-outline-variant rounded hover:bg-surface-variant font-label-md text-label-md transition-colors">2</button>
+<button class="px-3 py-1 border border-outline-variant rounded hover:bg-surface-variant font-label-md text-label-md transition-colors">3</button>
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dashboard Stats Bento Grid (Mini) -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-secondary-container p-6 rounded-xl border border-outline-variant flex items-center gap-4">
+<div class="bg-on-secondary-container bg-opacity-10 p-3 rounded-full">
+<span class="material-symbols-outlined text-on-secondary-container">auto_stories</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-secondary-container uppercase font-bold">Total Books</p>
+<h4 class="font-headline-lg text-headline-lg text-on-secondary-container">12,482</h4>
+</div>
+</div>
+<div class="bg-tertiary-fixed p-6 rounded-xl border border-outline-variant flex items-center gap-4">
+<div class="bg-on-tertiary-fixed-variant bg-opacity-10 p-3 rounded-full">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant">trending_up</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-tertiary-fixed-variant uppercase font-bold">New Loans Today</p>
+<h4 class="font-headline-lg text-headline-lg text-on-tertiary-fixed-variant">86</h4>
+</div>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl border border-outline-variant flex items-center gap-4">
+<div class="bg-on-surface-variant bg-opacity-10 p-3 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant">warning</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase font-bold">Overdue Returns</p>
+<h4 class="font-headline-lg text-headline-lg text-on-surface-variant">12</h4>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-gutter right-gutter w-14 h-14 bg-primary text-on-primary rounded-full shadow-xl hover:shadow-2xl transition-all active:scale-95 flex items-center justify-center z-50">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+<script>
+        // Simple micro-interaction for active states or feedback
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', (e) => {
+                const ripple = document.createElement('div');
+                ripple.className = 'ripple';
+                // (Logic for ripple omitted for brevity as requested to keep things lightweight)
+            });
+        });
+
+        // Search highlight simulation
+        const searchInput = document.querySelector('input[placeholder="Search Catalog..."]');
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+    </script>
+</body></html>

@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from '../../../../environments/environment';
-import { UpdateLoanDto } from '../../domain/dtos/update-loan.dto';
 import { CreateLoanDto } from '../../domain/dtos/create-loan.dto';
 import { Observable } from 'rxjs';
 import { Loan } from '../../domain/entities/loan.model';
+import { ReturnLoanDto } from '../../domain/dtos/return-loan.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -28,8 +28,8 @@ export class LoanService {
     return this.http.post<Loan>(`${environment.apiUrl}${environment.endpoints.loans}`, loanDto);
   }
 
-  updateLoan( loanDto : UpdateLoanDto ): Observable<Loan> {
-    return this.http.put<Loan>(`${environment.apiUrl}${environment.endpoints.loans}/${loanDto.userId}`, loanDto);
+  updateLoan( returnLoanDto : ReturnLoanDto ): Observable<Loan> {
+    return this.http.put<Loan>(`${environment.apiUrl}${environment.endpoints.loans}/${returnLoanDto.id}`, returnLoanDto);
   }
 }
 /*

@@ -8,6 +8,7 @@ export interface Loan {
   bookId: string;
   loanDate: Date;
   dueDate: Date;
+  returnDate: string;
   status: LoanStatus;
 }
 

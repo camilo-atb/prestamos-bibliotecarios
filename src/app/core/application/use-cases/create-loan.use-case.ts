@@ -58,3 +58,14 @@ export class CreateLoanUseCase {
     return loan;
   }
 }
+
+/*
+export interface CreateLoanDto {
+  userId: string;
+  bookId: string;
+  loanDate: string;
+  dueDate: string;
+  status: 'ACTIVE' | 'RETURNED';
+}
+*/
+

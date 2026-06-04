@@ -1,0 +1,56 @@
+<header class="topbar">
+
+  <div class="topbar-left">
+
+    <div class="search-container">
+      <span class="material-symbols-outlined search-icon">
+        search
+      </span>
+
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search Catalog..."
+      />
+    </div>
+
+    <nav class="topbar-nav">
+      @for (item of navigationItems; track item.route) {
+        <a
+          [routerLink]="item.route"
+          class="nav-item"
+          [class.nav-item--active]="item.active"
+          [attr.aria-current]="item.active ? 'page' : null"
+        >
+          {{ item.label }}
+        </a>
+      }
+    </nav>
+
+  </div>
+
+  <div class="topbar-actions">
+
+    <button class="icon-button">
+      <span class="material-symbols-outlined">
+        notifications
+      </span>
+    </button>
+
+    <button class="icon-button">
+      <span class="material-symbols-outlined">
+        help_outline
+      </span>
+    </button>
+
+    <div class="user-avatar">
+      <img
+        [src]="user.avatarUrl"
+        [alt]="user.name"
+        class="avatar-image"
+      />
+    </div>
+
+  </div>
+
+</header>

@@ -25,4 +25,7 @@ export class BookService {
   getBooksByAuthor(author: string): Observable<Book[]> {
     return this.http.get<Book[]>(`${environment.apiUrl}${environment.endpoints.books}?author=${author}`);
   }
+  updateBookAvailability(bookId: string, isAvailable: boolean): Observable<Book> {
+    return this.http.put<Book>(`${environment.apiUrl}${environment.endpoints.books}/${bookId}`, { isAvailable });
+  }
 }

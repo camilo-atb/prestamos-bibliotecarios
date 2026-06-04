@@ -1,0 +1,43 @@
+<aside class="sidebar">
+
+  <div class="sidebar-header">
+    <h1 class="sidebar-title">Librarian Portal</h1>
+    <p class="sidebar-subtitle">City Central Library</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    @for (opcion of menuItems; track opcion.route) {
+      <a
+        [routerLink]="opcion.route"
+        class="nav-link"
+        [class.nav-link--active]="opcion.active"
+        [attr.aria-current]="opcion.active ? 'page' : null"
+      >
+        <span class="material-symbols-outlined">
+          {{ opcion.icon }}
+        </span>
+
+        <span>
+          {{ opcion.label }}
+        </span>
+      </a>
+    }
+  </nav>
+
+  <div class="sidebar-footer">
+    <button class="quick-checkout-btn">
+      Quick Checkout
+    </button>
+
+    <a class="nav-link" href="#">
+      <span class="material-symbols-outlined">settings</span>
+      <span>Settings</span>
+    </a>
+
+    <a class="nav-link" href="#">
+      <span class="material-symbols-outlined">logout</span>
+      <span>Logout</span>
+    </a>
+  </div>
+
+</aside>
