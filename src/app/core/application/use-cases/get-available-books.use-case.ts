@@ -1,12 +1,25 @@
-import { firstValueFrom } from "rxjs";
-import { BookService } from "../../infrastructure/services/book.service";
-import { Book } from "../../domain/entities/book.model";
+import { Injectable } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
+import { BookService } from '../../infrastructure/services/book.service';
+import { Book } from '../../domain/entities/book.model';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class GetAvailableBooksUseCase {
-  constructor(private bookService: BookService) {}
+
+  constructor(
+    private bookService: BookService
+  ) {}
 
   async execute(): Promise<Book[]> {
-    const books = await firstValueFrom(this.bookService.getBooks());
-    return books.filter(book => book.isAvailable);
+    const books =
+      await firstValueFrom(
+        this.bookService.getBooks()
+      );
+
+    return books.filter(
+      book => book.isAvailable
+    );
   }
 }

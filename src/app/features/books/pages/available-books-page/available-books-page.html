@@ -1,1 +1,137 @@
-<p>available-books-page works!</p>
+
+<section class="available-books-page">
+  <header class="available-books-page__header">
+    <div>
+      <nav class="available-books-page__breadcrumb" aria-label="Breadcrumb">
+        <span>Catalog</span>
+        <span class="material-symbols-outlined available-books-page__breadcrumb-icon">chevron_right</span>
+        <span class="available-books-page__breadcrumb-current">Available Books</span>
+      </nav>
+      <h2 class="available-books-page__title">Book Inventory</h2>
+      <p class="available-books-page__description">Manage and monitor the current collection status.</p>
+    </div>
+
+    <div class="available-books-page__actions">
+      <label class="available-books-page__filter" for="category-filter">
+        <span class="material-symbols-outlined available-books-page__filter-icon">filter_alt</span>
+        <select (change)="onCategoryChange($any($event.target).value)" id="category-filter" class="available-books-page__select">
+          <option value="All">All Categories</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Non-Fiction">Non-Fiction</option>
+          <option value="Technology">Technology</option>
+          <option value="History">History</option>
+          <option value="Databases">Databases</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+        </select>
+      </label>
+
+      <button type="button" class="available-books-page__primary-action">
+        <span class="material-symbols-outlined available-books-page__action-icon">add</span>
+        Add New Book
+      </button>
+    </div>
+  </header>
+
+  <section class="available-books-page__table-card" aria-label="Available books table">
+    <div class="available-books-page__table-scroll">
+      <table class="available-books-page__table">
+        <thead>
+          <tr class="available-books-page__table-head-row">
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Category</th>
+            <th>Availability</th>
+            <th class="available-books-page__actions-column">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (book of pageBooks(); track book.id) {
+            <tr class="available-books-page__table-row">
+              <td>
+                <div class="available-books-page__book-title-cell">
+                  <span class="available-books-page__book-title">{{ book.title }}</span>
+                </div>
+              </td>
+              <td class="available-books-page__body-cell">{{ book.author }}</td>
+              <td class="available-books-page__body-cell available-books-page__pages-cell">{{ book.pages }}</td>
+              <td>
+                <span class="available-books-page__category-chip">{{ book.category }}</span>
+              </td>
+              <td>
+                <div
+                  class="available-books-page__status"
+                  [class.available-books-page__status--available]="book.isAvailable"
+                  [class.available-books-page__status--unavailable]="!book.isAvailable"
+                >
+                  <span class="available-books-page__status-dot"></span>
+                  <span class="available-books-page__status-label">
+                    @if (book.isAvailable) {
+                      Available
+                    } @else {
+                      Unavailable
+                    }
+                  </span>
+                </div>
+              </td>
+              <td class="available-books-page__row-actions">
+                <button type="button" class="available-books-page__secondary-action">Create Loan</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <footer class="available-books-page__pagination">
+      <span class="available-books-page__pagination-summary">Showing 1-10 of 482 books</span>
+      <div class="available-books-page__pagination-controls">
+        <button (click)="previousPage()" type="button" class="available-books-page__pagination-button">
+          <span class="material-symbols-outlined available-books-page__pagination-icon">chevron_left</span>
+        </button>
+
+        <span class="available-books-page__pagination-page">Page {{ currentPage() }} </span>
+
+        <button (click)="nextPage()" type="button" class="available-books-page__pagination-button">
+          <span class="material-symbols-outlined available-books-page__pagination-icon">chevron_right</span>
+        </button>
+      </div>
+    </footer>
+  </section>
+
+  <section class="available-books-page__stats" aria-label="Library overview metrics">
+    <article class="available-books-page__stat-card available-books-page__stat-card--books">
+      <div class="available-books-page__stat-icon-wrap">
+        <span class="material-symbols-outlined available-books-page__stat-icon">auto_stories</span>
+      </div>
+      <div>
+        <p class="available-books-page__stat-label">Books Available</p>
+        <h3 class="available-books-page__stat-value">{{ totalBooks() }}</h3>
+      </div>
+    </article>
+
+    <article class="available-books-page__stat-card available-books-page__stat-card--loans">
+      <div class="available-books-page__stat-icon-wrap">
+        <span class="material-symbols-outlined available-books-page__stat-icon">trending_up</span>
+      </div>
+      <div>
+        <p class="available-books-page__stat-label">New Loans Today</p>
+        <h3 class="available-books-page__stat-value">...</h3>
+      </div>
+    </article>
+
+    <article class="available-books-page__stat-card available-books-page__stat-card--overdue">
+      <div class="available-books-page__stat-icon-wrap">
+        <span class="material-symbols-outlined available-books-page__stat-icon">warning</span>
+      </div>
+      <div>
+        <p class="available-books-page__stat-label">Overdue Returns</p>
+        <h3 class="available-books-page__stat-value">{{ overdueReturns() }}</h3>
+      </div>
+    </article>
+  </section>
+</section>
+
+<button type="button" class="available-books-page__fab" aria-label="Add loan to cart">
+  <span class="material-symbols-outlined available-books-page__fab-icon">add_shopping_cart</span>
+</button>

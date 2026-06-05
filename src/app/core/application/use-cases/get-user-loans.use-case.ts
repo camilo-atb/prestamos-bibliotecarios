@@ -1,5 +1,4 @@
 import { firstValueFrom } from "rxjs";
-import { BookService } from "../../infrastructure/services/book.service";
 import { LoanService } from "../../infrastructure/services/loan.service";
 import { Loan } from "../../domain/entities/loan.model";
 

@@ -4,4 +4,5 @@ export interface Book {
   author: string;
   pages: number;
   isAvailable: boolean;
+  category: string;
 }
