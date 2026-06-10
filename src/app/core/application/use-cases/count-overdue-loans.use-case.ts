@@ -10,7 +10,7 @@ export class CountOverdueLoansUseCase {
   loanService = inject(LoanService);
 
   async execute(): Promise<number> {
-    const loans = await firstValueFrom(this.loanService.getLoans());
-    return loans.filter((loan) => isOverdue(loan)).length;
+    const loans = await firstValueFrom(this.loanService.getLoans()); // obtenemos los prestamos
+    return loans.filter((loan) => isOverdue( loan )).length;
   }
 }

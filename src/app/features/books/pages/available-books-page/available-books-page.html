@@ -135,3 +135,27 @@
 <button type="button" class="available-books-page__fab" aria-label="Add loan to cart">
   <span class="material-symbols-outlined available-books-page__fab-icon">add_shopping_cart</span>
 </button>
+
+<!--
+¿La lógica de calcular la fecha es una regla del dominio?
+Pensaría que sí, pero también podría ser una lógica de presentación. En este caso, la fecha de devolución se calcula a partir de la fecha actual y el número de días del préstamo. Esto es algo que podría considerarse una regla del dominio, ya que define cómo se determina la fecha de devolución en función de las políticas de préstamo de la biblioteca. Sin embargo, también podría ser visto como una lógica de presentación si se considera que la forma en que se muestra la fecha de devolución es parte de la interfaz de usuario. En general, creo que esta lógica podría ser considerada una regla del dominio, ya que afecta directamente a cómo se gestionan los préstamos y las devoluciones en el sistema.
+
+----------------------------------
+
+¿Por qué es una regla de dominio?
+Porque no depende de Angular.
+
+- No depende del navegador.
+- No depende de un servicio HTTP.
+
+Es una regla del negocio:
+
+  Si el libro tiene hasta 100 páginas
+  → 15 días
+
+  Si tiene más de 500 páginas
+  → 30 días
+
+Eso es una política de préstamo.
+Por tanto pertenece al dominio.
+-->
