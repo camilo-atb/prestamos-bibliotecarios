@@ -2,10 +2,11 @@ import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { Book } from '../../../../core/domain/entities/book.model';
 import { GetAvailableBooksUseCase } from '../../../../core/application/use-cases/get-available-books.use-case';
 import { CountOverdueLoansUseCase } from '../../../../core/application/use-cases/count-overdue-loans.use-case';
+import { ModalLoan } from '../../components/modal-loan/modal-loan';
 
 @Component({
   selector: 'app-available-books-page',
-  imports: [],
+  imports: [ModalLoan],
   templateUrl: './available-books-page.html',
   styleUrl: './available-books-page.css',
 })
@@ -17,6 +18,9 @@ export class AvailableBooksPage implements OnInit {
   selectedCategory = signal<string>('All'); // All categories by default. Agregar lógica para cambiar esta señal según la selección del usuario.
   currentPage = signal<number>(1);
   overdueReturns = signal<number>(0);
+
+  selectedBookId = signal<string | null>(null);
+  modalOpen = signal(false);
   // itemsPerPage = signal<number>(10);
 
 
@@ -78,5 +82,15 @@ export class AvailableBooksPage implements OnInit {
         page => page - 1
       );
     }
+  }
+
+  openLoanModal(bookId: string) {
+    this.selectedBookId.set(bookId);
+    this.modalOpen.set(true);
+  }
+
+  closeLoanModal() {
+    this.selectedBookId.set(null);
+    this.modalOpen.set(false);
   }
 }

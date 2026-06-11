@@ -1,0 +1,173 @@
+/* Container principal del modal */
+.modal-loan {
+  background: var(--color-surface);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Header del modal */
+.modal-loan__header {
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--color-outline-variant);
+  background: var(--color-surface-container);
+}
+
+.modal-loan__title {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-title-md);
+  line-height: var(--line-height-title-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.modal-loan__subtitle {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-label-md);
+  line-height: var(--line-height-label-md);
+  letter-spacing: var(--letter-spacing-label-md);
+  color: var(--color-on-surface-variant);
+  margin: var(--space-2) 0 0 0;
+}
+
+/* Overlay del modal - fondo oscuro que cubre toda la pantalla */
+.modal-loan__content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  padding: var(--space-4);
+}
+
+/* Dialog del modal */
+.modal-loan__dialog {
+  width: 100%;
+  max-width: 28rem;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-outline-variant);
+  overflow: hidden;
+}
+
+/* Header del dialog */
+.modal-loan__dialog-header {
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-outline-variant);
+}
+
+.modal-loan__dialog-title {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-title-md);
+  line-height: var(--line-height-title-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.modal-loan__close-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-on-surface-variant);
+  padding: var(--space-1);
+  border-radius: var(--radius-full);
+  transition: background-color 0.2s ease;
+}
+
+.modal-loan__close-btn:hover {
+  background-color: var(--color-surface-variant);
+}
+
+/* Cuerpo del dialog */
+.modal-loan__dialog-body {
+  padding: var(--space-6);
+}
+
+.modal-loan__form-group {
+  margin-bottom: var(--space-5);
+}
+
+.modal-loan__form-group:last-child {
+  margin-bottom: 0;
+}
+
+.modal-loan__label {
+  display: block;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-label-md);
+  line-height: var(--line-height-label-md);
+  letter-spacing: var(--letter-spacing-label-md);
+  color: var(--color-on-surface-variant);
+  margin-bottom: var(--space-2);
+}
+
+.modal-loan__input {
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-outline);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body-md);
+  line-height: var(--line-height-body-md);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.modal-loan__input:focus {
+  box-shadow: 0 0 0 2px var(--color-primary);
+  border-color: transparent;
+}
+
+/* Footer del dialog */
+.modal-loan__dialog-footer {
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-surface-container-low);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+/* Botones */
+.modal-loan__btn {
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-label-lg);
+  line-height: var(--line-height-label-lg);
+  letter-spacing: var(--letter-spacing-label-lg);
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.modal-loan__btn--cancel {
+  color: var(--color-primary);
+  background: transparent;
+}
+
+.modal-loan__btn--cancel:hover {
+  background: var(--color-surface-variant);
+}
+
+.modal-loan__btn--primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.modal-loan__btn--primary:hover {
+  opacity: 0.9;
+}

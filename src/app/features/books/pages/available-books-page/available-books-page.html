@@ -75,7 +75,7 @@
                 </div>
               </td>
               <td class="available-books-page__row-actions">
-                <button type="button" class="available-books-page__secondary-action">Create Loan</button>
+                <button type="button" class="available-books-page__secondary-action" (click)="openLoanModal(book.id)">Create Loan</button>
               </td>
             </tr>
           }
@@ -135,6 +135,8 @@
 <button type="button" class="available-books-page__fab" aria-label="Add loan to cart">
   <span class="material-symbols-outlined available-books-page__fab-icon">add_shopping_cart</span>
 </button>
+
+<app-modal-loan [isOpen]="modalOpen()" [bookId]="selectedBookId()" (close)="closeLoanModal()"></app-modal-loan>
 
 <!--
 ¿La lógica de calcular la fecha es una regla del dominio?
