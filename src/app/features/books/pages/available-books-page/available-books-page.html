@@ -136,7 +136,7 @@
   <span class="material-symbols-outlined available-books-page__fab-icon">add_shopping_cart</span>
 </button>
 
-<app-modal-loan [isOpen]="modalOpen()" [bookId]="selectedBookId()" (close)="closeLoanModal()"></app-modal-loan>
+<app-modal-loan [isOpen]="modalOpen()" [bookId]="selectedBookId()" (close)="closeLoanModal()" (save)="loadBooks()"></app-modal-loan>
 
 <!--
 ¿La lógica de calcular la fecha es una regla del dominio?

@@ -13,6 +13,7 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${environment.apiUrl}${environment.endpoints.users}`);
   }
+
   getUserByDocument(document: string): Observable<User> {
     return this.http.get<User>(`${environment.apiUrl}${environment.endpoints.users}?document=${document}`);
   }

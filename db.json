@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "document": "12345678",
       "name": "Camilo Torres",
       "phone": "3001234567",
@@ -9,7 +9,7 @@
       "email": "camilo@example.com"
     },
     {
-      "id": 2,
+      "id": "2",
       "document": "87654321",
       "name": "Laura Gomez",
       "phone": "3007654321",
@@ -17,7 +17,7 @@
       "email": "laura@example.com"
     },
     {
-      "id": 3,
+      "id": "3",
       "document": "10203040",
       "name": "Sofia Ramirez",
       "phone": "3012223344",
@@ -25,7 +25,7 @@
       "email": "sofia@example.com"
     },
     {
-      "id": 4,
+      "id": "4",
       "document": "55667788",
       "name": "Andres Martinez",
       "phone": "3025556677",
@@ -33,10 +33,9 @@
       "email": "andres@example.com"
     }
   ],
-
   "books": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Clean Code",
       "author": "Robert C. Martin",
       "pages": 464,
@@ -44,7 +43,7 @@
       "category": "Technology"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "The Pragmatic Programmer",
       "author": "Andrew Hunt",
       "pages": 352,
@@ -52,23 +51,15 @@
       "category": "Technology"
     },
     {
-      "id": 3,
-      "title": "Design Patterns",
-      "author": "Erich Gamma",
-      "pages": 395,
-      "isAvailable": true,
-      "category": "Technology"
+      "isAvailable": false,
+      "id": "3"
     },
     {
-      "id": 4,
-      "title": "Refactoring",
-      "author": "Martin Fowler",
-      "pages": 448,
-      "isAvailable": true,
-      "category": "Technology"
+      "isAvailable": false,
+      "id": "4"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Domain-Driven Design",
       "author": "Eric Evans",
       "pages": 560,
@@ -76,7 +67,7 @@
       "category": "Technology"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Introduction to Algorithms",
       "author": "Thomas H. Cormen",
       "pages": 1312,
@@ -84,7 +75,7 @@
       "category": "Technology"
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "You Don't Know JS Yet",
       "author": "Kyle Simpson",
       "pages": 278,
@@ -92,7 +83,7 @@
       "category": "Technology"
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Eloquent JavaScript",
       "author": "Marijn Haverbeke",
       "pages": 472,
@@ -100,7 +91,7 @@
       "category": "Technology"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Angular in Action",
       "author": "Jeremy Wilken",
       "pages": 320,
@@ -108,7 +99,7 @@
       "category": "Technology"
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Learning TypeScript",
       "author": "Josh Goldberg",
       "pages": 330,
@@ -116,7 +107,7 @@
       "category": "Technology"
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "The Clean Coder",
       "author": "Robert C. Martin",
       "pages": 256,
@@ -124,7 +115,7 @@
       "category": "Technology"
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Software Architecture in Practice",
       "author": "Len Bass",
       "pages": 464,
@@ -132,7 +123,7 @@
       "category": "Technology"
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "Database System Concepts",
       "author": "Abraham Silberschatz",
       "pages": 1376,
@@ -140,7 +131,7 @@
       "category": "Databases"
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Fundamentals of Database Systems",
       "author": "Ramez Elmasri",
       "pages": 1280,
@@ -148,7 +139,7 @@
       "category": "Databases"
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Artificial Intelligence: A Modern Approach",
       "author": "Stuart Russell",
       "pages": 1152,
@@ -156,10 +147,9 @@
       "category": "Artificial Intelligence"
     }
   ],
-
   "loans": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 1,
       "bookId": 2,
       "loanDate": "2026-05-18",
@@ -168,7 +158,7 @@
       "status": "ACTIVE"
     },
     {
-      "id": 2,
+      "id": "2",
       "userId": 2,
       "bookId": 6,
       "loanDate": "2026-05-22",
@@ -177,7 +167,7 @@
       "status": "ACTIVE"
     },
     {
-      "id": 3,
+      "id": "3",
       "userId": 3,
       "bookId": 10,
       "loanDate": "2026-05-25",
@@ -186,13 +176,54 @@
       "status": "ACTIVE"
     },
     {
-      "id": 4,
+      "id": "4",
       "userId": 4,
       "bookId": 14,
       "loanDate": "2026-05-20",
       "dueDate": "2026-06-04",
       "returnDate": "",
       "status": "ACTIVE"
+    },
+    {
+      "userId": "2",
+      "bookId": "3",
+      "loanDate": "2026-06-13T18:05:08.633Z",
+      "dueDate": "2026-07-13T18:05:08.633Z",
+      "status": "ACTIVE",
+      "id": "R2FCXFBfz7s"
+    },
+    {
+      "documentId": "87654321",
+      "bookId": "3",
+      "loanDate": "2026-06-13T18:26:07.620Z",
+      "dueDate": "2026-07-13T18:26:07.620Z",
+      "status": "ACTIVE",
+      "id": "XOwFsfezdzA"
+    },
+    {
+      "documentId": "Create Loan",
+      "bookId": "8",
+      "loanDate": "2026-06-13T18:28:58.564Z",
+      "dueDate": "2026-07-13T18:28:58.564Z",
+      "status": "ACTIVE",
+      "id": "wU70Mak-OhQ"
+    },
+    {
+      "documentId": "10203040",
+      "bookId": "3",
+      "loanDate": "2026-06-13T21:17:37.167Z",
+      "dueDate": "2026-07-13T21:17:37.167Z",
+      "status": "ACTIVE",
+      "id": "xD_W7fVWjX4"
+    },
+    {
+      "documentId": "55667788",
+      "bookId": "4",
+      "loanDate": "2026-06-14T01:20:52.250Z",
+      "dueDate": "2026-07-14T01:20:52.250Z",
+      "status": "ACTIVE",
+      "id": "Kd2l-ZK3lbg"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

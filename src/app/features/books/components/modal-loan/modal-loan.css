@@ -132,8 +132,17 @@
 }
 
 /* Footer del dialog */
-.modal-loan__dialog-footer {
+.modal-loan__dialog-footer { /* global */
   padding: var(--space-4) var(--space-6);
+  background: var(--color-surface-container-low);
+  display: flex;
+  flex-direction: column;
+  /* align-content: flex-end; */
+  gap: var(--space-3);
+}
+
+.modal-loan__dialog-actions { /* botones */
+  /* padding: var(--space-4) var(--space-6); */
   background: var(--color-surface-container-low);
   display: flex;
   justify-content: flex-end;
@@ -170,4 +179,12 @@
 
 .modal-loan__btn--primary:hover {
   opacity: 0.9;
+}
+
+.error {
+  /* margin-top: var(--space-4); */
+  color: var(--color-error);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body-error);
+  line-height: var(--line-height-body-md);
 }

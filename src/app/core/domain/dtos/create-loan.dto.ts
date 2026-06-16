@@ -1,5 +1,5 @@
 export interface CreateLoanDto {
-  userId: string;
+  documentId: string;
   bookId: string;
   loanDate: string;
   dueDate: string;

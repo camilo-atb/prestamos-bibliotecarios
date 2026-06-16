@@ -93,4 +93,12 @@ export class AvailableBooksPage implements OnInit {
     this.selectedBookId.set(null);
     this.modalOpen.set(false);
   }
+
+  async loadBooks() {
+
+    const books = await this.useCase.execute();
+
+    this.books.set(books);
+
+  }
 }

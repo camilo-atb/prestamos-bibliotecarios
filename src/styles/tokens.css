@@ -49,6 +49,7 @@
   --color-on-background: #1a1c1e;
   --color-outline: #737780;
   --color-outline-variant: #c3c6d0;
+  --color-error: #b00020;
 
   /* Typography */
   --font-family-sans: 'Inter', sans-serif;
@@ -61,6 +62,7 @@
   --font-size-title-md: 1rem;
   --line-height-title-md: 1.5rem;
   --font-size-body-md: 1rem;
+  --font-size-body-error: 0.825rem;
   --line-height-body-md: 1.5rem;
   --font-size-label-lg: 0.875rem;
   --line-height-label-lg: 1.25rem;

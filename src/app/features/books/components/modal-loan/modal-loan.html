@@ -2,18 +2,26 @@
 <div class="modal-loan__content">
   <div class="modal-loan__dialog">
     <div class="modal-loan__dialog-header">
-      <h2 class="modal-loan__dialog-title">Add New Book</h2>
+      <h2 class="modal-loan__dialog-title">Create Loan</h2>
       <button class="modal-loan__close-btn material-symbols-outlined" (click)="notificarCierre()">close</button>
     </div>
     <div class="modal-loan__dialog-body">
       <div class="modal-loan__form-group">
         <label class="modal-loan__label">User</label>
-        <input class="modal-loan__input" placeholder="e.g. The Great Gatsby" type="text"/>
+        <input class="modal-loan__input" placeholder="e.g. 1070421365" type="text" (input)="onInput($event)" />
       </div>
     </div>
     <div class="modal-loan__dialog-footer">
-      <button class="modal-loan__btn modal-loan__btn--cancel" (click)="notificarCierre()">Cancel</button>
-      <button class="modal-loan__btn modal-loan__btn--primary">Add Book</button>
+      <div class="modal-loan__dialog-actions">
+        <button class="modal-loan__btn modal-loan__btn--cancel" (click)="notificarCierre()">Cancel</button>
+        <button class="modal-loan__btn modal-loan__btn--primary" (click)="createLoan()">Add Book</button>
+      </div>
+
+      @if(errorMessage()) {
+        <p class="error">
+          {{ errorMessage() }}
+        </p>
+      }isOpen
     </div>
   </div>
 </div>
