@@ -25,7 +25,7 @@
         </select>
       </label>
 
-      <button type="button" class="available-books-page__primary-action">
+      <button (click)="openAddBookModal()"  type="button" class="available-books-page__primary-action">
         <span class="material-symbols-outlined available-books-page__action-icon">add</span>
         Add New Book
       </button>
@@ -92,7 +92,7 @@
 
         <span class="available-books-page__pagination-page">Page {{ currentPage() }} </span>
 
-        <button (click)="nextPage()" type="button" class="available-books-page__pagination-button">
+        <button  (click)="nextPage()" type="button" class="available-books-page__pagination-button">
           <span class="material-symbols-outlined available-books-page__pagination-icon">chevron_right</span>
         </button>
       </div>
@@ -137,6 +137,7 @@
 </button>
 
 <app-modal-loan [isOpen]="modalOpen()" [bookId]="selectedBookId()" (close)="closeLoanModal()" (save)="loadBooks()"></app-modal-loan>
+<app-modal-add-book [isOpen]="modalAddOpen()" (close)="closeAddBookModal()"></app-modal-add-book>
 
 <!--
 ¿La lógica de calcular la fecha es una regla del dominio?

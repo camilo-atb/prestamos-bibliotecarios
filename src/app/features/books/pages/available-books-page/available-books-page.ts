@@ -3,10 +3,11 @@ import { Book } from '../../../../core/domain/entities/book.model';
 import { GetAvailableBooksUseCase } from '../../../../core/application/use-cases/get-available-books.use-case';
 import { CountOverdueLoansUseCase } from '../../../../core/application/use-cases/count-overdue-loans.use-case';
 import { ModalLoan } from '../../components/modal-loan/modal-loan';
+import { ModalAddBook } from '../../components/modal-add-book/modal-add-book';
 
 @Component({
   selector: 'app-available-books-page',
-  imports: [ModalLoan],
+  imports: [ModalLoan, ModalAddBook],
   templateUrl: './available-books-page.html',
   styleUrl: './available-books-page.css',
 })
@@ -21,6 +22,7 @@ export class AvailableBooksPage implements OnInit {
 
   selectedBookId = signal<string | null>(null);
   modalOpen = signal(false);
+  modalAddOpen = signal(false);
   // itemsPerPage = signal<number>(10);
 
 
@@ -70,11 +72,38 @@ export class AvailableBooksPage implements OnInit {
 
   }
 
-  nextPage() {
-    this.currentPage.update(
-      page => page + 1
-    );
+  verifyNextPage(): boolean {
+    const books = this.filterBooks();
+    const nextPage = this.currentPage() + 1;
+
+    const itemsPerPage = 10;
+    const startIndex = (nextPage - 1) * itemsPerPage;
+
+    return books.slice(
+      startIndex,
+      startIndex + itemsPerPage
+    ).length > 0;
   }
+
+  nextPage() {
+    if (this.verifyNextPage()) {
+      this.currentPage.update(page => page + 1);
+    }
+  } // currentPage = signal<number>(1);
+
+  /*
+  if (this.pageBooks().length !== 0) {
+  */
+
+  /*
+    pageBooks = computed(() => {
+      const books = this.filterBooks();
+      const page = this.currentPage();
+      const itemsPerPage = 10;
+      const startIndex = (page - 1) * itemsPerPage;
+      return books.slice(startIndex, startIndex + itemsPerPage);
+    })
+  */
 
   previousPage() {
     if (this.currentPage() > 1) {
@@ -87,6 +116,15 @@ export class AvailableBooksPage implements OnInit {
   openLoanModal(bookId: string) {
     this.selectedBookId.set(bookId);
     this.modalOpen.set(true);
+  }
+
+  openAddBookModal() {
+    console.log('Abriendo modal para agregar libro');
+    this.modalAddOpen.set(true);
+  }
+
+  closeAddBookModal() {
+    this.modalAddOpen.set(false);
   }
 
   closeLoanModal() {

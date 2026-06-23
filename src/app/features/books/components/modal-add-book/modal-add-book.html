@@ -8,13 +8,13 @@
     <div class="modal-loan__dialog-body">
       <div class="modal-loan__form-group">
         <label class="modal-loan__label">User</label>
-        <input class="modal-loan__input" placeholder="e.g. 1070421365" type="text" (input)="onInput($event)" />
+        <input class="modal-loan__input" placeholder="e.g. 1070421365" type="text" /> <!--(input)="onInput($event)"-->
       </div>
     </div>
     <div class="modal-loan__dialog-footer">
       <div class="modal-loan__dialog-actions">
         <button class="modal-loan__btn modal-loan__btn--cancel" (click)="notificarCierre()">Cancel</button>
-        <button class="modal-loan__btn modal-loan__btn--primary" (click)="createLoan()">Add Book</button>
+        <button class="modal-loan__btn modal-loan__btn--primary">Add Book</button>
       </div>
 
       @if(errorMessage()) {
